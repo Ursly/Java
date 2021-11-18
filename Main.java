@@ -1,20 +1,20 @@
 package com.company;
 
 import java.sql.Array;
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
         // Declaring Variables
-        int min = 50;
-        int max = 100;
-        int randomInt;
-        int[] arrayInt = new int [10];
-        int counter = 0;
-        boolean isCounting = true;
-        int temp = 0;
+        int min = 0;  // Min value for random number generator
+        int max = 1000;  // Max value for random number generator
+        int randomInt;  // Generated random number
+        int[] arrayInt = new int [10];  // Array of random Integers
+        int counter = 0;  // Number of swaps
+        boolean isCounting = true; // Condition for Bubble Sorting
+        int temp; // Temporary variable for swapping numbers
+        int lockedNum = 1; // Locking the biggest value at the end of array
 
 
         // Creating Array of 10 Random Elements
@@ -25,7 +25,7 @@ public class Main {
 
         // Bubble Sorting Algorithm
         while(isCounting) {
-            for (int i = 0; i < arrayInt.length - 1; i++) {
+            for (int i = 0; i < arrayInt.length - lockedNum; i++) {
                 if (arrayInt[i] > arrayInt[i+1]){
                     temp = arrayInt[i+1];
                     arrayInt[i+1] = arrayInt[i];
@@ -33,6 +33,7 @@ public class Main {
                     counter++;
                 }
             }
+            lockedNum++;
             if(counter == 0)
                 break;
             counter = 0;
